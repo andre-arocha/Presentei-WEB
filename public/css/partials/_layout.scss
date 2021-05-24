@@ -1,0 +1,1841 @@
+// Container-devices
+$container-xl: 1440px;
+$container-l: 1140px;
+$container-m: 960px;
+$container-s: 540px;
+
+@mixin responsive($device) {
+    @if $device == xl {
+      // For resolutions upper 1440px
+      @media screen and (min-width: $container-xl) {
+        @content;
+      }
+    } @else if $device == l {
+      // For resolutions between 1140px and 1440px
+      @media screen and (max-width: $container-xl) and (min-width: $container-l) {
+        @content;
+      }
+    } @else if $device == m {
+      // For resolutions between 960px and 1440px
+      @media screen and (max-width: $container-l) and (min-width: $container-s) {
+        @content;
+      }
+    } @else if $device == s {
+      // For resolutions less than 960px
+      @media screen and (max-width: $container-m) {
+        @content;
+      }
+    } @else if $device == xs {
+      // For resolutions less than 540px
+      @media screen and (max-width: $container-s) {
+        @content;
+      }
+    }
+    
+}
+
+
+.btn-custom {
+    text-decoration: none;
+    background-color: $red-light;
+    color: $white-light;
+
+    &:hover {
+        background-color: $red-dark;
+        color: $white-light;
+    }
+
+    &:focus {
+        border-color: #FF0000;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+    }
+
+    @include responsive(s){
+        height: 20px;
+        font-size: 10px;
+        line-height: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/fundCasamento.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: mymove 40s infinite;
+
+    @include responsive(s){
+        height: 140vh;
+    }
+}
+
+.cabecalho-home{
+    width: 100%;
+    height: 100vh;
+    line-height: 100px;
+    // background: rgb(0, 0, 0) transparent;
+    background: rgba(83, 83, 83, 0.7);
+    display: inline-block;
+
+    @include responsive(s){
+        height: 140vh;
+    }
+}
+
+.listaDePresentes{
+
+    // border: 1px solid gold;
+    margin-top: 5%;
+
+    .txt{
+
+        text-align: center;
+    
+        h1{
+            padding: 25px 0 0 0;
+            font-size: 72px;
+            color: #B22222;
+            margin: 30px;
+
+                @include responsive(s){
+                    font-size: 30px;
+                }
+        }
+    
+        p{
+            font-size: 32px;
+            color: #FFFFFF;
+            line-height: 1em;
+            margin-bottom: 25px;
+
+            @include responsive(s){
+                font-size: 30px;
+            }
+        }
+
+    }
+
+
+}
+
+.botaoRolagem{
+    text-align: center;
+    margin-top: 75px;
+    cursor: pointer;
+    padding: 10px 10px;
+    transition: .5s ease;
+
+    .svg-setas{
+        width: 60px;
+        height: 60px;
+
+        @include responsive(s){
+            display: none;
+        }
+    }
+}
+
+h1{
+    .svg-icones {
+        width: 60px;
+        height: 60px;
+
+        @include responsive(s){
+            display: none;
+        }
+    }
+}
+
+.divOpcoes{
+
+    margin-top: 10%;
+    margin-bottom: 0;
+    overflow: none;
+
+    .opcoes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+    }
+
+    @include responsive(s){
+        overflow: hidden;
+    }
+    
+}
+
+
+.escolher{
+    width: 40%;
+    height: 60%;
+    margin: 20px 0;
+    text-align: center;
+    float: left;
+    color: #B22222;
+    background-color: $white-light;
+    border: 1px solid #696969;
+    border-radius: 10px;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+
+    &:hover{
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    h1{
+        font-size: 28px;
+        padding-top: 20px ;
+
+        @include responsive(s){
+            font-size: 20px;
+        }
+    }
+
+    a{
+        text-decoration: none;
+        color: $red-dark;
+        padding: 5px;
+        transition: all 0.2s ease;
+    }
+
+    p{
+        font-size: 15px;
+        padding: 40px 0;
+        color: #696969;
+
+        @include responsive(s){
+            display: none;
+        }
+
+        @include responsive(m){
+            display: block;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        @include responsive(l){
+            font-size: 20px;
+        }
+    }
+
+    a:hover{
+        color: $red;
+        border-bottom: 1px solid gray;
+    }
+
+    h2{
+        font-size: 22pt;
+        padding-bottom: 20px;
+
+        @include responsive(s){
+            font-size: 10px;
+        }
+    }
+
+    @include responsive(s){
+        height: 150px;
+    }
+}
+
+
+.presentear{
+    width: 40%;
+    height: 60%;
+    margin: 20px 0;
+    text-align: center;
+    float: left;
+    color: #B22222;
+    background-color: $white-light;
+    border: 1px solid #696969;
+    border-radius: 10px;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+    
+    &:hover{
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    h1{
+        font-size: 28px;
+        padding-top: 20px ;
+
+        @include responsive(s){
+            font-size: 20px;
+        }
+    }
+
+    a{
+        text-decoration: none;
+        color: $red-dark;
+        padding: 5px;
+        transition: all 0.2s ease;
+    }
+
+    p{
+        font-size: 15px;
+        padding: 40px 0;
+        color: #696969;
+        width: 80%;
+        margin: 0 auto;
+
+        @include responsive(s){
+            display: none;
+        }
+
+        @include responsive(m){
+            display: block;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        @include responsive(l){
+            font-size: 20px;
+        }
+    }
+
+    a:hover{
+        color: $red;
+        border-bottom: 1px solid gray;
+    }
+
+    h2{
+        font-size: 22pt;
+        padding-bottom: 20px;
+
+        @include responsive(s){
+            font-size: 10px;
+        }
+    }
+
+    @include responsive(s){
+        height: 150px;
+    }
+}
+
+
+/* FOOTER */
+
+footer{
+
+    width: 100%;
+    height: 100px;    
+    margin: 0 auto;
+    background-color: #A52A2A;
+    color: #FFF;
+    line-height: 100px;
+    display: flex;
+}
+
+
+
+// ========================== CADASTRO ==========================
+
+.titCadastro{
+    margin: 0 auto;
+    font-size: 36px;
+    color: rgb(178, 34, 34);
+    width: 35%;
+    padding: 10px;
+}
+
+.listaDeCadastro {
+    border-radius: 10px;
+    width: 1000px;
+    padding: 10px;
+    margin-top: 10%;
+    margin-bottom: 0;
+    background: rgba(190, 185, 185, 0.4);
+
+    .formCadastro{
+        height: 100vh;
+    }
+
+    a{
+        text-decoration: none;
+        font-size: 16px;
+        color: $white-light;
+        line-height: 1em;
+        margin-left: 10px;
+
+        @include responsive(s){
+            font-size: 35px;
+        }
+
+        &:hover{
+            color: $gray-1;
+        }
+    }
+
+    label {
+        line-height: 20px;
+        color: $white-light;
+        @include responsive(m){
+            margin-left: 5%;
+        }
+
+        @include responsive(s){
+            margin-left: 10%;
+            font-size: 15px;   
+
+        }
+    }
+
+    .possuoCadastro {
+        
+        @include responsive(s){
+            color:$white-light;
+            font-size: 15px;
+            margin-left: 15px;
+        }
+    }
+
+    input {
+        height: 50px;
+        padding: 10px;
+        margin: 0 auto;
+        @include responsive(m){
+            width: 30%;
+            
+        }
+    }
+    
+    @include responsive(s){
+        width: 250px;
+        height: 540px;
+    }
+
+    @include responsive(m){
+        width: 600px;
+    }
+
+    .text-erro{
+        font-size: 20px;
+        color: $red-dark;
+        
+
+        @include responsive(s){
+            font-size: 10px;
+            line-height: 10px;
+        }
+
+    }
+
+    .form-control {
+        background-color: $white-light;
+        
+        &:focus {
+            border-color: #FF0000;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+        }
+
+        @include responsive(s){
+            width: 190px;
+            height: 30px;
+        }
+    }
+
+    .btn-custom{
+        @include responsive(s){
+            margin-left: 15px;
+            display: block;
+        }
+    }
+
+    .form-erro{
+        width: 100%;
+        height: 50px;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 2px solid rgba(255, 0, 0, 0.6);
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+        &:focus {
+            border-color: #FF0000;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+        }
+
+        @include responsive(s){
+            width: 190px;
+            height: 30px;
+        }
+
+    }
+}
+
+.minhaConta {
+    width: 100%;
+    margin-top: 10%;
+    padding: 0 30px 40px 30px;
+    border-radius: 20px;
+    background: rgba(190, 185, 185, 0.4);
+
+    .trocarSenha{
+        margin-top: 10px;
+    }
+
+    .formCadastro{
+        height: 100vh;
+    }
+
+    h1{
+        font-size: 28px;
+        padding-top: 20px;
+        color: $white-light;
+
+        @include responsive(s){
+            font-size: 24px;
+            padding-top: 20px;
+            
+        }
+    }
+
+    hr{
+        color: $red;
+        background-color: $red;
+    }
+
+    
+
+    a{
+        text-decoration: none;
+        font-size: 16px;
+        color: $white-light;
+        line-height: 1em;
+        margin-left: 10px;
+
+        @include responsive(s){
+            font-size: 30px;
+        }
+
+        &:hover{
+            color: $gray-1;
+        }
+    }
+
+    label {
+        line-height: 20px;
+        color: $white-light;
+        margin-left: 1%;
+
+        @include responsive(m){
+            margin-left: 6%;
+        }
+
+    }
+
+    .btn-customMinhaConta{
+        background-color: #F03A40;
+        color: #F4F7FB;
+        cursor: pointer;
+        margin-left: 3px;
+
+        @include responsive(m){
+            margin-left: 3%;
+        }
+    
+        @include responsive(s){
+            margin-left: 4%;
+        }
+    }
+
+    input {
+        height: 50px;
+        padding: 10px;
+        margin: 0 auto;
+        @include responsive(m){
+            width: 90%;
+            
+        }
+    }
+
+    .text-erro{
+        font-size: 20px;
+        color: $red-dark;
+    }
+
+    .form-control {
+        background-color: $white-light;
+        
+        &:focus {
+            border-color: #FF0000;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+        }
+    }
+
+    .form-erro{
+        width: 100%;
+        height: 50px;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 2px solid rgba(255, 0, 0, 0.6);
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+        &:focus {
+            border-color: #FF0000;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+        }
+
+    }
+    
+    @include responsive(s){
+        width: 300px;
+    }
+ 
+    @include responsive(m){
+        width: 500px;
+    }
+}
+
+// .border {
+//     border: 1px solid blue;
+// }
+
+// @media (min-width: 576px) and (max-width: 767.98px) {
+// .navbar-light .navbar-toggler {
+//     margin-left: 0%; 
+// }
+
+// }
+
+// ========================== LOGIN ==========================
+ 
+
+.text-erro-login{
+    line-height: 16px;
+    font-size: 14px;
+    color: $white-light;
+    width: 100%;
+
+    span{
+        color: red;
+    }
+
+    a{
+        font-size: 15px;
+        color: white;
+        text-decoration: underline;
+        transition: .1s ease;
+        transform: .1s ease;
+
+        &:hover{
+            color: $red;
+        }
+    }
+}
+
+.borderCustom {
+    border: 1px solid goldenrod;
+}
+
+.containerCustom {
+    height: 150px;
+}
+
+
+// ========================== LISTA DE PRESENTE ==========================
+
+.lista{
+    border-radius: 20px;
+    width: 1200px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background: rgba(190, 185, 185, 0.4);
+
+    @include responsive(s){
+        width: 90%;
+        height: 85%;
+    }
+
+}
+
+.listaDePresente{
+    width: auto;
+    padding: 5px;
+    margin: 0 auto;
+
+
+
+    .iconesPresente{
+        margin: 0 auto;
+        width: 900px;
+
+        @include responsive(s){
+            width: 90%;
+            height: 80%;
+        }
+
+        img{
+            width: 200px;
+            margin: 0 auto;
+                        
+            @include responsive(s){
+                width: 150px;
+                height: 130px;
+                margin: 0 auto;
+            }
+        }
+
+        .pngIconesPresente{
+            float: left;
+            width: 200px;
+            margin-left: 2%;
+
+            @include responsive(s){
+                margin-left: 25%;
+                width: 150px;
+                margin-bottom: 10px;
+            }
+        }
+
+        &:before,
+            &:after {
+                content: " "; /* 1 */
+                display: table; /* 2 */
+            }
+
+            &:after {
+                clear: both;
+            }
+
+            .btn-custom{
+                margin-top: 10%;
+                width: 200px;
+
+                @include responsive(s){
+                    width: 150px;
+                }
+            }
+    }
+}
+
+.propriaLista{
+    margin-top: 10px;
+
+    @include responsive(s){
+        height: 50px;
+    }
+
+    
+    p{
+        color: $white-light;
+        padding: 0 15px;
+        width: 69%;
+        margin: 0 auto;
+        font-size: 15px;
+        // border: 1px solid goldenrod;
+
+        @include responsive(s){
+            width: 100%;
+            height: 50px;
+            font-size: 12px;
+            line-height: 15px;
+        }
+    }
+
+    .btn-custom{
+        margin-left: 30%;
+        width: 40%;
+        margin-top: 0;
+
+        @include responsive(s){
+            width: 150px;
+            margin-top: 5px;
+            margin-left: 25%;
+
+        }
+    }
+}
+
+
+// ========================== PERGUNTAS FREQUENTES ==========================
+
+.perguntasFrequentes{
+    margin-top: 60px;
+    padding: 15px;
+    border-radius: 20px;
+    background: rgba(190, 185, 185, 0.4);
+
+    @include responsive(s){
+        width: 96%;
+        margin-top: 16px;
+    }
+
+    .containerPgt{
+
+        .titPerguntas{
+            font-size: 52px;
+            border-bottom: 2px solid $gray-1;
+            color: $white-dark;
+
+            @include responsive(s){
+                font-size: 32px;
+            }
+        }
+
+        .subPerguntas{
+            margin-left: 3%;
+            color: $white-dark;
+
+            @include responsive(s){
+                font-size: 20px;
+            }
+        }
+
+        .divRespostas{
+            height: 60%;
+        }
+
+        ul{
+            margin-left: 3%;
+
+            @include responsive(s){
+                 margin-left: 5%;
+            }
+        }
+
+        li{
+            padding: 5px;
+            text-align: justify;
+            width: 90%;
+            margin-left: 3%;
+            text-align: justify;
+            line-height: 15px;
+            color: $white-light;
+
+            @include responsive(s){
+                font-size: 12px;
+                margin-left: 5%;
+            }
+        }
+
+        p{
+            margin-left: 3%;
+            line-height: 15px;
+            color: $white-light;
+
+            @include responsive(s){
+                font-size: 12px;
+                margin-left: 5%;
+            }
+        }
+
+    }
+
+}
+
+// ========================== CRIAR LISTAS ==========================
+
+
+.cabecalho-home-lista{
+    width: 100%;
+    height: 130vh;
+    line-height: 100px;
+    // background: rgb(0, 0, 0) transparent;
+    background: rgba(83, 83, 83, 0.7);
+    display: inline-block;
+
+    @include responsive(s){
+        height: 140vh;
+    }
+}
+
+.banner-lista {
+    width: 100%;
+    height: 130vh;
+    background-image: url(../img/fundCasamento.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: mymove 40s infinite;
+
+    @include responsive(s){
+        height: 140vh;
+    }
+}
+
+.criacaoLista{
+    background: rgba(190, 185, 185, 0.4);
+    border-radius: 10px;
+    width: 80%;
+    height: 84%;
+    margin-top: 30px;
+    padding: 10px;
+
+    form{
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+
+        .titLista{
+            color: $red; 
+            text-shadow: white 0.1em 0.1em 1em;
+            font-size: 52px;
+        }
+
+        hr{
+            background-color: white;
+            margin-bottom: 2%;
+        }
+
+        label {
+            line-height: 20px;
+            color: $white-light;
+            @include responsive(m){
+                margin-left: 5%;
+            }
+    
+            @include responsive(s){
+                margin-left: 10%;
+                font-size: 15px;   
+            }
+        }
+
+        input {
+            height: 50px;
+            padding: 10px;
+            margin: 0 auto;
+            @include responsive(m){
+                width: 90%;
+            }
+        }
+
+        .form-control {
+            background-color: $white-light;
+            
+            &:focus {
+                border-color: #FF0000;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+            }
+        }
+
+        p{
+            // border: 1px solid red;
+            width: 100%;
+            line-height: 20px;
+            font-size: 14px;
+            color:  $white-light;
+        }
+
+        textarea{
+            min-height: 50px;
+            padding: 10px;
+            margin: 0 auto;
+            max-height: 100px;
+            @include responsive(m){
+                width: 90%;
+            }
+        }
+
+        img{
+            border: 0;
+            width: 200px; 
+            height: 200px;
+            padding: 5px;
+            // border-radius: 50%;
+        }
+
+        .text-erro{
+            font-size: 20px;
+            color: $red-dark;
+            
+            @include responsive(s){
+                font-size: 10px;
+                line-height: 10px;
+            }
+        }
+    }
+}
+
+// ========================== BUSCA DA LISTA DE PRESENTES ==========================
+
+.bannerProcurar{
+    width: 100%;
+    height: 180vh;
+    background-image: url(../img/fundCasamento.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: mymove 40s infinite;
+
+    @include responsive(s){
+        height: 350vh;
+    }
+
+    @include responsive(m){
+        height: 350vh;
+    }
+
+    .cabecalho-homeProcurar{
+        width: 100%;
+        height: 180vh;
+        line-height: 100px;
+        // background: rgb(0, 0, 0) transparent;
+        background: rgba(83, 83, 83, 0.7);
+        display: inline-block;
+    
+        @include responsive(s){
+            height: 350vh;
+        }
+
+        @include responsive(m){
+            height: 350vh;
+        }
+    }
+
+}
+
+.listaProcurar {
+    margin-top: 15%;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 10px;
+    height: 12vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: rgba(190, 185, 185, 0.4);
+
+
+    @include responsive(xl){
+        height: 6vw;
+    }
+
+    @include responsive(s){
+        height: 12vw;
+    }
+  
+  
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // border: 1px solid black;
+        
+        @include responsive(s){
+            width: 100%;
+        }
+    }
+    
+    input{
+        height: 45px;
+        padding: 16px;
+        font-size: 14px;
+        border: 0;
+        // border: 1px solid greenyellow;
+
+        @include responsive(s){
+            font-size: 10px;
+        }
+    }
+    
+    input:focus{
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+    
+    .busca{
+        width: 45vw;
+        border-radius: 10px 0 0 10px;        
+
+        @include responsive(s){
+            width: 80%;
+            font-size: 12px;
+        }
+
+        @include responsive(xl){
+            width: 45em;
+            font-size: 16px;
+        }
+    }
+    
+    .data{
+        width: 15vw;
+
+        @include responsive(s){
+            display: none;
+        }
+
+        @include responsive(m){
+            width: 24%;
+        }
+
+        @include responsive(xl){
+            width: 24%;
+        }
+    }
+    
+    img{
+        padding-right: 4px;
+        
+        @include responsive(s){
+            width: 15px;
+        }
+    }
+    
+    .procurar{
+        height: 45px;
+        width: 13vw;
+        border-radius: 0 10px 10px 0;
+        border: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        @include responsive(s){
+            font-weight: bold;
+            width: 25%;
+            font-size: 10px;
+        }
+
+        @include responsive(xl){
+            width: 30%;
+        }
+    }
+    
+    .procurar:hover{
+        background-color: #DEDEDE;
+    }
+
+    @include responsive(s){
+       width: 95%;
+    }
+}
+
+.exibirListaProcurar {
+    
+    text-align: center;
+    justify-content: center;
+    color: $black-dark;
+    margin-top: 2%;
+    // border: 1px solid greenyellow;
+    height: 60%;
+
+
+
+    .infoLista{
+        background-color: $white-light;
+        border: 1px solid #696969;
+        border-radius: 30px;
+        padding: 10px;
+        margin: 20px;        
+        width: 300px;
+        height: auto;
+        float: left;
+        text-align: center;
+        margin-left: 4%;
+        // border: 1px solid greenyellow;
+
+
+        .img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 5px auto;
+        }
+
+        h4{
+            color: $black-light;
+            font-size: 16px;
+
+            small{
+                font-size: 16px;
+                color: $black-dark;
+            }
+        }
+
+        .btn-custom{
+            @include responsive(m){
+                font-size: 16px;
+                height: 30px;
+                line-height: 20px;
+            }
+        }
+
+        @include responsive(s){
+            width: 200px;
+            height: auto;
+            margin-left: 20%;
+        }
+
+        @include responsive(m){
+            width: 300px;
+            height: auto;
+            margin-left: 30%;
+            
+        }
+
+        @include responsive(l){
+            width: 300px;
+            height: auto;
+            margin-left: 30%;
+        }
+
+    }
+
+    .createNewList{
+        width: 100%;
+        text-align: right;
+
+        @include responsive(s){
+            text-align: center;
+        }
+        
+
+        img{
+            width: 16px;
+            height: 16px;
+            margin-bottom: .3%;
+
+            @include responsive(m){
+                width: 11px;
+                height: 11px;
+            }
+            
+            @include responsive(s){
+                width: 9px;
+                height: 9px;
+            }
+
+        }
+
+        
+
+        a{
+            font-size: 16px;
+            height: 10px;
+            color: white;
+            background-color: $red;
+            padding: 8px 10px;
+            border: 0;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: .5s ease;
+
+            &:hover{
+                background-color: $red-dark;
+            }
+
+            @include responsive(m){
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+
+            @include responsive(s){
+                font-size: 16px;
+                padding: 3px 10px;
+            }
+
+
+        }    
+
+    }
+
+    .semLista{
+        font-size: 32px;
+        margin: 8% 0;
+        color: $red;
+
+        @include responsive(m){
+            font-size: 26px;
+        }
+
+        @include responsive(s){
+            font-size: 18px;
+        }
+    }
+
+    .infoSemLista{
+        margin-top: 15%;  
+        
+        .semLista{
+            color: $red;
+            font-size: 38px;;
+            font-weight: 400;
+            color: $red;
+
+            @include responsive(m){
+                font-size: 24px;
+            }
+
+            @include responsive(s){
+                font-size: 18px;
+            }
+        }
+    }
+
+}
+
+// ========================== CATEGORIAS ==========================
+
+.categoria {
+    margin-top: 6vh;
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+    line-height: 30px;
+    background: rgba(190, 185, 185, 0.4);
+
+  
+    h1{
+        font-size: 38px;
+        color: $red;
+        text-shadow: white 0.1em 0.1em 1em;
+        padding-top: 1%;
+
+        @include responsive(m){
+            font-size: 32px;
+        }
+
+        @include responsive(s){
+            font-size: 22px;
+        }
+
+    }
+
+    hr{
+        background-color: #FFF;
+    }
+
+    .form {
+        height: auto;
+        padding-bottom: 1%;
+
+        .categorias{
+            margin-bottom: 25px;
+            margin-left: 12px;
+
+            h2{
+                margin-bottom: .2%;
+                a{
+                    font-size: 20px;
+                    color: #FFF;
+                    font-family: 'Righteous', cursive;
+                    
+
+                    &:hover{
+                        text-decoration: 3px underline $red-dark;
+                    }
+                }
+
+                @include responsive(m){
+                    font-size: 16px;
+                }
+
+                @include responsive(s){
+                    font-size: 14px;
+                }
+
+            }
+        }
+    }
+
+    h2{
+        font-size: 18px;
+        color: #000;
+        font-weight: 400;
+        margin-bottom: -3%;
+    }
+
+}
+
+// ========================== LOJAS ==========================
+
+.lojas{
+    // border: 10px solid red;
+    width: 80%;
+    text-align: center;
+    margin-top: 3%;
+    padding-top: 4%;
+    border-radius: 10px;
+    background: rgba(190, 185, 185, 0.4);
+
+    @include responsive(s){
+        // border: 3px solid white;
+        margin-top: 10%;
+        padding: 6% 0;
+    }
+
+    .imgLojas{
+        width: 280px;
+        height: 150px;
+        // border: 5px solid orangered;
+        display: inline-block;
+        text-align: center;
+        justify-content: center;
+        margin-right: 3%;
+
+        @include responsive(m){
+            max-width: 160px;
+            max-height: 100px;
+        }
+
+        @include responsive(s){
+            max-width: 140px;
+            max-height: 60px;
+           
+        }
+        
+        img{
+            max-width: 270px;
+            max-height: 140px;
+            // border: 5px solid yellow;
+            display: block;
+            margin: 0 auto;
+            -webkit-transition: -webkit-transform .5s ease;
+            transition: transform .5s ease;
+
+            &:hover{
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+
+            @include responsive(m){
+                max-width: 170px;
+                max-height: 90px;
+            }
+
+            @include responsive(s){
+                max-width: 120px;
+                max-height: 50px;
+            }
+        }
+    }
+
+    
+}
+
+// ========================== MINHA LISTA ==========================
+
+.banner-minhaLista{
+
+    width: 100%;
+    height: 170vh;
+    background-image: url(../img/fundCasamento.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: mymove 40s infinite;
+
+    @include responsive(s){
+        height: 350vh;
+    }
+
+    @include responsive(l){
+        height: 350vh;
+    }
+
+    .cabecalho-home-minhaLista{
+
+        width: 100%;
+        height: 170vh;
+        line-height: 100px;
+        // background: rgb(0, 0, 0) transparent;
+        background: rgba(83, 83, 83, 0.7);
+        display: inline-block;
+    
+        @include responsive(s){
+            height: 350vh;
+        }
+
+        @include responsive(l){
+            height: 350vh;
+        }
+
+    }
+
+
+    .contPag{
+
+        border:1px solid greenyellow;
+
+        .pag{
+            margin: -10% auto;
+            
+            @include responsive(m){
+            }
+
+            @include responsive(s){
+                margin: -50% 20%;
+            }
+        
+        }
+
+        .page-link{
+            color: $red;
+        }
+
+        .page-item.active .page-link{
+            background-color: $red;
+            color: $white;
+            border-color: $red;
+        }
+    }
+
+}
+
+// ========================== PRODUTOS ==========================
+
+
+.listaProdutos{
+    margin-top: 10%;
+    
+    img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .produtos{
+        background-color: $white-light;
+        border: 1px solid #696969;
+        border-radius: 30px;
+        padding: 10px;
+        margin: 20px;        
+        width: 300px;
+        height: auto;
+        float: left;
+        text-align: center;
+        margin-left: 4%;
+        // border: 1px solid greenyellow;
+
+        a{
+            color: $red;
+        }
+
+
+        .img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 5px auto;
+        }
+
+        h4{
+            color: $black-light;
+            font-size: 16px;
+
+            small{
+                font-size: 16px;
+                color: $black-dark;
+            }
+        }
+
+        .btn-custom {
+            text-decoration: none;
+            background-color: $red-light;
+            color: $white-light;
+        
+            &:hover {
+                background-color: $red-dark;
+                color: $white-light;
+            }
+        
+            &:focus {
+                border-color: #FF0000;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+            }
+        
+            @include responsive(s){
+                height: 20px;
+                font-size: 10px;
+                line-height: 5px;
+                margin-bottom: 10px;
+            }
+
+            @include responsive(m){
+                font-size: 16px;
+                height: 30px;
+                line-height: 20px;
+            }
+        }
+
+        @include responsive(s){
+            width: 200px;
+            height: auto;
+            margin-left: 20%;
+        }
+
+        @include responsive(m){
+            width: 300px;
+            height: auto;
+            margin-left: 30%;
+            
+        }
+
+        @include responsive(l){
+            width: 300px;
+            height: auto;
+            margin-left: 30%;
+        }
+
+        .form-control {
+            background-color: $white-light;
+            margin: 5px auto;
+
+            width: 60px;
+            height: 30px;
+            
+            &:focus {
+                border-color: #FF0000;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+            }
+    
+            @include responsive(s){
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+    }
+    
+
+}
+
+// ========================== VER PRODUTOS ==========================
+
+.exibirLista {
+    text-align: center;
+    justify-content: center;
+    color: $black-dark;
+    margin-top: 2%;
+    // border: 1px solid greenyellow;
+    height: 90%;
+
+    h1{
+        color: $red-light;
+        // font-size: 16px;
+
+        small{
+            font-size: 16px;
+            color: $black-dark;
+        }
+    }
+
+
+
+    .infoitem{
+        background-color: $white-light;
+        border: 1px solid #696969;
+        border-radius: 30px;
+        padding: 10px;
+        margin: 20px;        
+        width: 300px;
+        height: auto;
+        float: left;
+        text-align: center;
+        margin-left: 4%;
+        // border: 1px solid greenyellow;
+
+
+        .img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 5px auto;
+        }
+
+        h4{
+            color: $black-light;
+            font-size: 16px;
+
+            small{
+                font-size: 16px;
+                color: $black-dark;
+            }
+        }
+
+        .btn-custom{
+            @include responsive(m){
+                font-size: 16px;
+                height: 30px;
+                line-height: 20px;
+            }
+        }
+
+        @include responsive(s){
+            width: 200px;
+            height: auto;
+            margin-left: 20%;
+        }
+
+        @include responsive(m){
+            width: 300px;
+            height: auto;
+            margin-left: 30%;
+            
+        }
+
+        @include responsive(l){
+            width: 300px;
+            height: auto;
+            margin-left: 30%;
+        }
+
+    }
+
+    .createNewList{
+        width: 100%;
+        text-align: right;
+
+        @include responsive(s){
+            text-align: center;
+        }
+        
+
+        img{
+            width: 16px;
+            height: 16px;
+            margin-bottom: .3%;
+
+            @include responsive(m){
+                width: 11px;
+                height: 11px;
+            }
+            
+            @include responsive(s){
+                width: 9px;
+                height: 9px;
+            }
+
+        }
+
+
+        a{
+            font-size: 16px;
+            height: 10px;
+            color: white;
+            background-color: $red;
+            padding: 8px 10px;
+            border: 0;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: .5s ease;
+
+            &:hover{
+                background-color: $red-dark;
+            }
+
+            @include responsive(m){
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+
+            @include responsive(s){
+                font-size: 16px;
+                padding: 3px 10px;
+            }
+
+
+        }    
+
+    }
+
+    .linkNome{
+
+        line-height: 30px;
+        height: 30px;
+        color: $red;
+
+        &:hover{
+           color: $red-dark;
+           border-bottom: 0;
+        }
+
+        @include responsive(m){
+            font-size: 11px;
+            padding: 6px 10px;
+        }
+
+        @include responsive(s){
+            font-size: 16px;
+            padding: 3px 10px;
+        }
+
+    }    
+
+    .semLista{
+        font-size: 32px;
+        margin: 8% 0;
+        color: $red;
+
+        @include responsive(m){
+            font-size: 26px;
+        }
+
+        @include responsive(s){
+            font-size: 18px;
+        }
+    }
+
+    .infoSemLista{
+        margin-top: 15%;  
+        
+        .semLista{
+            color: $red;
+            font-size: 38px;;
+            font-weight: 400;
+            color: $red;
+
+            @include responsive(m){
+                font-size: 24px;
+            }
+
+            @include responsive(s){
+                font-size: 18px;
+            }
+        }
+    }
+
+}
+
+.contPag{
+
+    border: 1px solid red;
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+
+    .pag{
+        margin: -10% auto;
+        // border:1px solid rebeccapurple;
+        width: 300px;
+        
+        @include responsive(m){
+        }
+
+        @include responsive(s){
+            margin: -50% 20%;
+        }
+    
+    }
+
+    .page-link{
+        color: $red;
+    }
+
+    .page-item.active .page-link{
+        background-color: $red;
+        color: $white;
+        border-color: $red;
+    }
+}
+
+
+

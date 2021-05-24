@@ -1,0 +1,46 @@
+<main id="bannerLogin">
+        <div id="mainLogin">
+
+            <div id="cabecalho">
+                <div id="logo"><img src="img/logo1.png" alt=""></div>
+                <a href="index.html"><h1 id="titulo">Presentei.com</h1></a> 
+                <hr>
+            </div>
+
+            <form id="formLogin" action="comLogin.php" method="post">
+                <legend id="titLogin">Login <hr></legend>
+
+                <table>
+
+                    <fieldset class="grupo">
+                        <div class="campoLogin">
+                            <label>E-MAIL <p style="color: red; display: inline-block; font-size: 14pt;">*</p></label>
+                            <input type="email" placeholder="seuemail@dominio.com"name="email">
+                        </div>
+                    </fieldset>
+                    <fieldset class="grupo">
+                        <div class="campoLogin">
+                            <label>SENHA <p style="color: red; display: inline-block; font-size: 14pt;">*</p></label>
+                            <input type="password" maxlength="30" placeholder="Senha" name="senha" id="senha">
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="grupo">
+                        <input type="checkbox" onclick="MostrarSenha()"> Mostrar senha
+                    </fieldset>
+
+                    
+
+                    <fieldset>
+                        <div class="campoLogin">
+                            <button type="submit" class="button" name="btn-entrar" id="botaoLogin">ENTRAR</button>
+                            <p id="esqSenha"><a href="esqSenha.html">ESQUECI MINHA SENHA</a></p>
+                            <p id="naoCad">Não é cadastrado(a) ainda? <a href="cadastro.html">Cadastre-se</a></p>
+                        </div>
+                    </fieldset>
+                </table>
+            </form>
+    </div>
+    </main>
+
+    <script type="text/javascript" src="JS/mostrarSenha.js"></script>

@@ -1,0 +1,167 @@
+<section class="banner" id="home">
+    <div class="cabecalho-home">
+    <header> <!--inicio header-->
+                <nav class="navbar navbar-expand-md navbar-light navbar-transparente"> <!--inicio nav-->
+                    <div class="container"> <!--inicio container-->
+                        
+                        <a href="/"><img class="logo" src="img/logo/logoPngSf.png"></a> 
+
+                        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal" >  <!--inicio button-->
+                        <i class="fas fa-bars text-white"></i>
+                        </button> <!--final button-->
+
+                        <div class="collapse navbar-collapse" id="nav-principal"> <!-- inicio div collapse-->
+
+                        <ul class="navbar-nav ml-auto"> <!--inicio ul-->
+                            <li class="nav-item">
+                            <a href="/login" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/cadastro" class="nav-link">Cadastro</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/perguntasFrequentes" class="nav-link">Perguntas Frequentes</a>
+                            </li>
+                        </ul> <!--final ul-->
+
+                        </div> <!--final div collapse-->
+
+                    </div> <!--final container-->
+
+                </nav> <!--final nav-->
+
+        </header> <!--final header-->
+
+        <div id="modal" class="<?php if($this->view->btnLogin == 'login'){?>
+                                                                <?php echo ""?>"> 
+                                                                <?php }else{?>
+                                                                    <?php echo "hide"?>">
+                                                                <?php }?>
+            <div class="content">
+                <div class="header">
+                    <h1>Login</h1>
+                    <a href="/" id="fechar">Fechar</a>
+                </div>
+
+                <form action="/logar" method="post">
+                    <label for="search">Email</label>
+                    <div class="search field">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="email@exemplo.com">
+                        <div class="chk">
+
+                        </div>
+                    </div>
+
+                    <label for="search">Senha</label>
+                    <div class="search field">
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                        <label class="chk">
+                            <img class="olho" id="imgOlho" src="img/senha/olhoFechado.svg" alt="" onclick="mostrarSenha()">
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-custom mb-2 ">Logar</button>
+                </form>
+                <?php if($this->view->loginErro) { ?>
+                            <small class="text-erro-login">*Erro ao fazer login, E-mail ou Senha incorreto</small>
+                <?php }?>
+            </div>
+        </div>
+
+                
+        <section class="container listaDeCadastro">
+
+                <form action="/registrar" method="post">
+                
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text"class="<?php if($this->view->txt['nome']) {
+                                echo 'form-control form-erro';
+                            } else {
+                                echo 'form-control';
+                            }?>" id="name" name="nome" placeholder="Nome" value="<?= $this->view->usuario['nome']?>">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="cpf">CPF</label>
+                            <input type="text" class="<?php if($this->view->txt['cpf']) {
+                                echo 'form-control form-erro';
+                            } else {
+                                echo 'form-control';
+                            }?>" id="cpf" name="cpf" placeholder="CPF" onkeypress="mascaraCPF(this)" maxlength="14" value="<?= $this->view->usuario['cpf']?>">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" class="<?php if($this->view->txt['email']) {
+                                echo 'form-control form-erro';
+                            } else {
+                                echo 'form-control';
+                            }?>" id="email" name="email" placeholder="Email" value="<?= $this->view->usuario['email']?>">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" maxlength="14" class="<?php if($this->view->txt['telefone']) {
+                                echo 'form-control form-erro';
+                            } else {
+                                echo 'form-control';
+                            }?>" id="telefone" name="telefone" placeholder="Telefone"  onkeypress="mascaraTelefone(this)" value="<?= $this->view->usuario['telefone']?>">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="senha">Senha</label>
+                            <input type="password" class="<?php if($this->view->txt['telefone']) {
+                                echo 'form-control form-erro';
+                            } else {
+                                echo 'form-control';
+                            }?>" id="senha" name="senha" placeholder="Senha" value="<?= $this->view->usuario['senha']?>">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="confSenha">Confirmar Senha</label>
+                            <input type="password" class="<?php if($this->view->txt['telefone']) {
+                                echo 'form-control form-erro';
+                            } else {
+                                echo 'form-control';
+                            }?>" id="confSenha" name="confSenha" placeholder="Confirmar Senha">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-custom btn-sm">Cadastrar</button>
+
+                    
+                    <a class="possuoCadastro" href="/?login=login&loginErro=login">Já possuo uma conta</a>
+                    
+
+                    <?php if($this->view->loginErro) { ?>
+                    <small class="mt-2 form-text text-erro">*Erro ao cadastrar, Conta já cadastrada</small>
+                    <?php }else if($this->view->txtFalta) { ?>
+                    <small class="mt-2 form-text text-erro">*Erro ao cadastrar, Preencha todos os campos</small>
+                    <?php }else if($this->view->senhaConf){ ?>
+                    <small class="mt-2 form-text text-erro">*Erro ao cadastrar, Campos de senhas não são identicos</small>
+                    <?php } if($this->view->login) { ?>
+                    <small class="mt-2 form-text text-erro">Cadastrado com sucesso (Bem vindo(a)) <a href="/?login=login&loginErro=false&esqueci=false&senhaTrue=false&senhafalse=false&senhaErroTotal=false&vazio=false&listaInvalido=false'" class="btn btn-custom btn-sm">Fazer login</a></small>                    
+                    <?php }?>
+                </form>
+        </section>
+    </div>  
+    
+    <footer>            
+        <div class="container">
+            <a href="/" class="titulo">Presentei.com</a> 
+        </div>
+    </footer>
+</section>
+
+
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

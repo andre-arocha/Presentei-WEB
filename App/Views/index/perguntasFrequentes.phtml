@@ -1,0 +1,142 @@
+<section class="banner" id="home">
+    <div class="cabecalho-home">
+    <header> <!--inicio header-->
+                <nav class="navbar navbar-expand-md navbar-light navbar-transparente"> <!--inicio nav-->
+                    <div class="container"> <!--inicio container-->
+                        
+                        <a href="/"><img class="logo" src="img/logo/logoPngSf.png"></a> 
+
+                        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal" >  <!--inicio button-->
+                        <i class="fas fa-bars text-white"></i>
+                        </button> <!--final button-->
+
+                        <div class="collapse navbar-collapse" id="nav-principal"> <!-- inicio div collapse-->
+
+                        <ul class="navbar-nav ml-auto"> <!--inicio ul-->
+                            <li class="nav-item">
+                            <a href="/login" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/cadastro" class="nav-link">Cadastro</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/perguntasFrequentes" class="nav-link">Perguntas Frequentes</a>
+                            </li>
+                        </ul> <!--final ul-->
+
+                        </div> <!--final div collapse-->
+
+                    </div> <!--final container-->
+
+                </nav> <!--final nav-->
+
+        </header> <!--final header-->
+
+        <div id="modal" class="<?php if($this->view->btnLogin == 'login'){?>
+                                                                <?php echo ""?>"> 
+                                                                <?php }else{?>
+                                                                    <?php echo "hide"?>">
+                                                                <?php }?>
+            <div class="content">
+                <div class="header">
+                    <h1>Login</h1>
+                    <a href="/" id="fechar">Fechar</a>
+                </div>
+
+                <form action="/logar" method="post">
+                    <label for="search">Email</label>
+                    <div class="search field">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="email@exemplo.com">
+                        <div class="chk">
+
+                        </div>
+                    </div>
+
+                    <label for="search">Senha</label>
+                    <div class="search field">
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                        <label class="chk">
+                            <img class="olho" id="imgOlho" src="img/senha/olhoFechado.svg" alt="" onclick="mostrarSenha()">
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-custom mb-2 ">Logar</button>
+                </form>
+                <?php if($this->view->loginErro) { ?>
+                            <small class="text-erro-login">*Erro ao fazer login, E-mail ou Senha incorreto</small>
+                <?php }?>
+            </div>
+        </div>
+                
+        <section class="perguntasFrequentes container">
+                <div class="containerPgt">  
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 class="titPerguntas">FAQ – Presenteie.com</h1>
+                        </div>
+
+                        <div class="col-sm-12">
+
+                            <h2 class="subPerguntas">Como ciar uma lista?</h2>
+                            <div class="divRespostas">
+                                <ul>
+                                    <li class="respostas">Criando uma Conta no no site;</li>
+                                    <li class="respostas">Indo na Parte de minhas listas</li>
+                                    <li class="respostas">Selecionando algum tipo de lista</li>
+                                    <li class="respostas">Colocando os item</li>
+                                </ul>  
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <h2 class="subPerguntas">Como divulgar a minha lista?</h2>
+
+                            <p>Você pode compartilhar a sua lista com os seus amigos de várias maneiras:</p>
+
+                            <div class="divRespostas">
+                                <ul>
+                                    <li>Através do link que foi criado especialmente para você;</li>
+                                    <li>Divulgando o código da sua lista junto com o endereço do nosso site;</li>
+                                    <li>Pedindo para os seus amigos pesquisarem o nome da sua lista, data de quando acontecerá o evento ou pelo código fornecido pelo site ao criar a lista. </li>
+                                </ul>  
+                                
+                            </div>                                                        
+
+                        </div>
+
+                        <div class="col-sm-12">
+                            <p>Você pode encontrar todas essas informações na nossa plataforma, basta realizar o Login e a acessar o menu "Minhas Listas".</p>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <h2 class="subPerguntas">Como encontrar uma lista?</h2>
+                            <p>basta acessar a página “Procurar Lista”, encontrada na página inical do nosso site, e pesquise pelo nome da lista, nome dos organizadores, data do evento ou código da lista. </p>
+
+                            <h2 class="subPerguntas">O que fazer caso ocorra o esquecimento da senha da minha conta? </h2>
+                            <p>Para redifinir sua senha, na página deverá de  “Login”, clicar em “Esqueci minha senha”. Logo aopós, deverá informar o email cadastrado para que possamos enviar um link para fazer a alteração de sua Nova Senha. </p>
+
+                        </div>
+
+
+                        
+                    </div>      
+                </div>
+        </section>
+        
+    </div>           
+</section>
+
+
+<footer>            
+  <div class="container">
+    <a href="/" class="titulo">Presentei.com</a> 
+  </div>
+</footer>
+
+    
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 

@@ -1,0 +1,140 @@
+<section class="banner" id="home">
+    <div class="cabecalho-home">
+    <header> <!--inicio header-->
+                    <nav class="navbar navbar-expand-md navbar-light navbar-transparente"> <!--inicio nav-->
+                        <div class="container"> <!--inicio container-->
+                            <a href="/logado"><img class="logo" src="img/logo/logoPngSf.png"></a>
+
+
+                            <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">  <!--inicio button-->
+                            <i class="fas fa-bars text-white"></i>
+                            </button> <!--final button-->
+
+                            <div class="collapse navbar-collapse" id="nav-principal"> <!-- inicio div collapse-->
+
+                            <ul class="navbar-nav ml-auto"> <!--inicio ul-->                            
+                                <li class="nav-item">
+                                <a href="/minhaConta" class="nav-link"><?= $this->view->nome?></a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="/minhaLista" class="nav-link">Minha lista</a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="/procurarListaLogado" class="nav-link">Procurar Lista</a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="/sair" class="nav-link">Sair</a>
+                                </li>
+                            </ul> <!--final ul-->
+
+                            </div> <!--final div collapse-->
+
+                        </div> <!--final container-->
+
+                    </nav> <!--final nav-->
+
+            </header> <!--final header-->
+
+        <section class="container minhaConta">
+
+            <div class="titulo">
+                <h1 class="">Dados pessoais</h1>
+            </div>
+            
+
+            <form action="/atualizarUsuario" method="post">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="nome">Nome</label>
+                    <input type="text"class="<?php if($this->view->txt['nome'] == 1) {
+                        echo 'form-control form-erro';
+                    } else {
+                        echo 'form-control';
+                    }?>" id="nome" name="nome" placeholder="Nome" value="<?= $this->view->usuario['nome']?>">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                    <label for="cpf">CPF</label>
+                    <input type="text" class="<?php if($this->view->txt['cpf'] == 1) {
+                        echo 'form-control form-erro';
+                    } else {
+                        echo 'form-control';
+                    }?>" id="cpf" name="cpf" placeholder="CPF" onkeypress="mascaraCPF(this)" maxlength="14" value="<?= $this->view->usuario['cpf']?>">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="<?php if($this->view->txt['email'] == 1) {
+                        echo 'form-control form-erro';
+                    } else {
+                        echo 'form-control';
+                    }?>" id="email" name="email" placeholder="Email" value="<?= $this->view->usuario['email']?>">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" maxlength="15" class="<?php if($this->view->txt['telefone'] == 1) {
+                        echo 'form-control form-erro';
+                    } else {
+                        echo 'form-control';
+                    }?>" id="telefone" name="telefone" placeholder="Telefone"  onkeypress="mascaraTelefone(this)" value="<?= $this->view->usuario['telefone']?>">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-custom btn-sm">Atualizar</button>
+                
+            </form>
+
+            <form class="trocarSenha" action="/atualizarSenhaUsuario" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="senhaAntiga">Senha antiga</label>
+                    <input type="password" class="<?php if($this->view->txt['senha'] == 1) {
+                        echo 'form-control form-erro';
+                    } else {
+                        echo 'form-control';
+                    }?>" id="senhaAntiga" name="senhaAntiga" placeholder="Senha antiga" value="<?= $this->view->usuario['senha']?>">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                    <label for="novaSenha">Nova Senha</label>
+                    <input type="password" class="<?php if($this->view->txt['senhaConfirmar'] == 1) {
+                        echo 'form-control form-erro';
+                    } else {
+                        echo 'form-control';
+                    }?>" id="novaSenha" name="novaSenha" placeholder="Nova Senha">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-custom btn-sm">Atualizar</button>
+                <?php if($this->view->certoSenha) { ?>
+                    <small class="mt-2 form-text text-erro">Senha atualizado com sucesso</small>
+                <?php }else if($this->view->erroSenha) { ?>
+                    <small class="mt-2 form-text text-erro">*Erro ao atualizar senha, tente de novo</small>
+                <?php } ?>
+                                   
+
+            </form>
+            </section>
+
+    </div>           
+</section>
+
+
+<footer>            
+  <div class="container">
+    <a href="/" class="titulo">Presentei.com</a> 
+  </div>
+</footer>
+
+    
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 

@@ -1,0 +1,144 @@
+<section class="banner-lista" id="home">
+    <div class="cabecalho-home-lista">
+    <header> <!--inicio header-->
+                    <nav class="navbar navbar-expand-md navbar-light navbar-transparente"> <!--inicio nav-->
+                        <div class="container"> <!--inicio container-->
+                            <a href="/logado"><img class="logo" src="img/logo/logoPngSf.png"></a>
+
+
+                            <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">  <!--inicio button-->
+                            <i class="fas fa-bars text-white"></i>
+                            </button> <!--final button-->
+
+                            <div class="collapse navbar-collapse" id="nav-principal"> <!-- inicio div collapse-->
+
+                            <ul class="navbar-nav ml-auto"> <!--inicio ul-->                            
+                                <li class="nav-item">
+                                <a href="/minhaConta" class="nav-link"><?= $this->view->nome?></a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="/minhaLista" class="nav-link">Minha lista</a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="/procurarListaLogado" class="nav-link">Procurar Lista</a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="/sair" class="nav-link">Sair</a>
+                                </li>
+                            </ul> <!--final ul-->
+
+                            </div> <!--final div collapse-->
+
+                        </div> <!--final container-->
+
+                    </nav> <!--final nav-->
+
+            </header> <!--final header-->
+                
+        <section class="container criacaoLista">
+            <form action="/salvarListas" method="post" enctype="multipart/form-data">
+
+                <h2 class="titLista"><?php if(!empty($this->view->titulo)){ echo $this->view->titulo; }else{echo "Lista";} ?></h2>
+                <hr>
+
+                    <div class="form-row divCustom">
+                        <div class="form-group col-md-6">
+                            <label for="nome">Nome da lista</label>
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da sua lista">
+                            <p>O título da sua lista ajuda os convidados a encontrarem sua lista depois. Seja criativo, mas pense como as pessoas vão digitar na busca, caso não tenham o seu link único.</p>
+                        </div>
+
+                        <!-- <div class="form-group col-md-6">
+                            <label for="Senha">Senha da lista</label>
+                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha da sua lista">
+                            <p>A senha da sua lista ajuda a na se gurança da sua lista. Seja criativo, mas pense como as pessoas vão digitar no login, caso não tenham o sa sua senha única.</p>
+                        </div> -->
+
+                        <div class="form-group col-md-6">
+                            <label for="data">Data de quando acontecerá o evento</label>
+                            <input type="date" class="form-control" id="data" name="data" placeholder="DD/MM/AAAA" size="10">
+                           <p>Se você for fazer algum evento, nos informe a data e local para facilitar que seus<br> convidados encontrem sua lista.</p>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="local">Local aonde acontecerá o evento</label>
+                            <input type="text" class="form-control" id="local" name="local" placeholder="Endereço, número" size="10">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="texto">Texto para convidado</label>
+                            <textarea type="text" class="form-control" id="texto" name="texto" maxlength="500"></textarea>
+                            <p>Informe o texto que será mostrado para os convidados, limite de 500 caracteres</p>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="img">Imagem</label>
+                            <input type="file" name="arq" class="form-control" onchange="previewImagem()">
+                            <p>A imagem deve estar nos formatos PNG, JPG ou JPEG.</p>
+                        </div>
+
+                        <input type="hidden" name="link" value="<?php echo $_GET['link']; ?>">
+                         
+
+                        <div class="form-group col-md-12">
+                            <img class="img"></img>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <button type="submit" class="btn btn-custom btn-sm">Criar Lista</button>
+                        </div>
+
+                        <?php if($this->view->tamanhosIncorreto) { ?>
+                            <small class="mt-2 form-text text-erro">*Erro ao criar lista, Foto muito grande</small>
+                        <?php }else if($this->view->inserido) { ?>
+                            <small class="mt-2 form-text text-erro">Lista criada</small>
+                        <?php }else if($this->view->opc){ ?>
+                            <small class="mt-2 form-text text-erro">*Erro ao criar lista, Preencha todos os campos !</small>
+                        <?php }?>
+
+                    </div>
+
+                </form>
+
+        </section>
+    </div>  
+    
+    <footer>            
+        <div class="container">
+            <a href="/" class="titulo">Presentei.com</a> 
+        </div>
+    </footer>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+                <script>
+                        function previewImagem(){
+                            var imagem = document.querySelector('input[name=arq]').files[0];
+                            var preview = document.querySelector('.img');
+                            
+                            var reader = new FileReader();
+                            
+                            reader.onloadend = function () {
+                                preview.src = reader.result;
+                            }
+                            
+                            if(imagem){
+                                reader.readAsDataURL(imagem);
+                            }else{
+                                preview.src = "";
+                            }
+                        }
+                </script>
+
+
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
+
+
+   

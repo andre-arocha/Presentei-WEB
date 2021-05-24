@@ -1,0 +1,152 @@
+<section class="banner" id="home">
+    <div class="cabecalho-home">
+        <header> <!--inicio header-->
+                <nav class="navbar navbar-expand-md navbar-light navbar-transparente"> <!--inicio nav-->
+                    <div class="container"> <!--inicio container-->
+                        
+                        <a href="/"><img class="logo" src="img/logo/logoPngSf.png"></a> 
+
+                        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal" >  <!--inicio button-->
+                        <i class="fas fa-bars text-white"></i>
+                        </button> <!--final button-->
+
+                        <div class="collapse navbar-collapse" id="nav-principal"> <!-- inicio div collapse-->
+
+                        <ul class="navbar-nav ml-auto"> <!--inicio ul-->
+                            <li class="nav-item">
+                            <a href="/login" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/cadastro" class="nav-link">Cadastro</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/perguntasFrequentes" class="nav-link">Perguntas Frequentes</a>
+                            </li>
+                        </ul> <!--final ul-->
+
+                        </div> <!--final div collapse-->
+
+                    </div> <!--final container-->
+
+                </nav> <!--final nav-->
+
+        </header> <!--final header-->
+
+        <?php if($this->view->btnLogin == 'login'){?>
+                    
+            <div id="modal" class="<?php if($this->view->btnLogin == 'login'){?>
+                                                                <?php echo ""?>"> 
+                                                                <?php }else{?>
+                                                                    <?php echo "hide"?>">
+                                                                <?php }?>
+                <div class="content">
+                    <div class="header">
+                        <h1>Login</h1>
+                        <a href="/" id="fechar">Fechar</a>
+                    </div>
+
+                    <form action="/logar" method="post">
+                        <label for="search">Email</label>
+                        <div class="search field form-grupo">
+                            <input type="text" class="form-control email" id="email" name="email" placeholder="email@exemplo.com">
+                        </div>
+
+                        <label for="search">Senha</label>
+                        <div class="search field form-grupo">
+                            <input type="password" class="form-control senha" id="senha" name="senha" placeholder="Senha">
+                            <label class="chk">
+                                <img class="olho" id="imgOlho" src="img/senha/olhoFechado.svg" alt="" onclick="mostrarSenha()">
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-custom mb-2 ">Logar</button>
+                    </form>
+                    <?php if($_GET['loginErro']=='erro') { ?>
+                        <p class="text-erro-login"><span>*</span>Erro ao fazer login, E-mail ou Senha inválidos.</p>
+                    <?php }else if($_GET['vazio']=='true'){?>
+                        <p class="text-erro-login"><span>*</span>Erro, Digite um email e uma senha.</p>
+                    <?php }else if($_GET['listaInvalido']=='true'){?>
+                        <p class="text-erro-login"><span>*</span>Para criar uma lista, primeiro você tem de estar logado com sua conta.</p>
+                    <?php } ?>
+
+                    <p class="text-erro-login">Não tem uma conta? <a href="/cadastro">Cadastra-se</a></p>
+                    <p class="text-erro-login"><a href="/?login=login&loginErro=login&esqueci=true&senhaTrue=false&senhafalse=false&senhaErroTotal=false&vazio=false&listaInvalido=false&emailInvalido=false">Esqueci minha senha</a></p>
+                    
+                    <?php if($_GET['esqueci']=='true'){ ?>
+
+                        <form action="/esqueciSenha" method="post">
+                            <p class="text-erro-login mt-5">Enviaremos um email com um link para trocar sua senha</p>
+                            <div class="search field form-grupo">
+                                <input type="text" class="form-control email" id="email" name="email" placeholder="email@exemplo.com">
+                            </div>
+                            <button type="submit" class="btn btn-custom-Senha mt-2 ">Recuperar senha</button>
+                        </form>
+
+                        <?php if($_GET['senhaTrue']=='true') { ?>
+                            <p class="text-erro-login mt-3">E-mail enviado com sucesso, verifique seu Email para redefinir sua senha</p>
+                        <?php }else if($_GET['senhafalse']=='true'){?>
+                            <p class="text-erro-login mt-3"><span>*</span>Erro, Email não enviado</p>
+                        <?php }else if($_GET['senhaErroTotal']=='true'){?>
+                            <p class="text-erro-login mt-3"><span>*</span>Erro ao tentar enviar Email</p>
+                        <?php }else if($_GET['emailInvalido']=='true'){?>
+                            <p class="text-erro-login mt-3"><span>*</span>Erro, digite um Email valido</p>
+                        <?php } ?>
+
+                    <?php } ?>
+
+                </div>
+            </div>
+            
+        <?php }?> 
+                
+        <section class="container listaDePresentes">
+            <div class="txt">
+                <h1>Lista de presentes</h1>
+                <p>O jeito mais fácil de presentear e ser presenteado em <br> 
+                    todos os momentos importantes de sua vida</p>                            
+            </div>
+                    
+            <div class="botaoRolagem">
+                <a href="#part1"><img class="svg-setas" src="img/setas/svg/seta-para-baixo.svg" onload="SVGInject(this)"></a>
+            </div>
+        </section>
+    </div>           
+</section>
+
+<section class="container divOpcoes">
+        <div id="part1" class="opcoes">
+
+            <div class="escolher">
+                <h1><img class="svg-icones" src="img/presentes/presente.svg" onload="SVGInject(this)"> Listas de presentes</h1>
+                <p>Aqui você cria listas para ser presenteado <br>
+                Em todos os momentos de sua vida</p>
+                <h2><a href="/?login=login&loginErro=login&esqueci=false&senhaTrue=false&senhafalse=false&senhaErroTotal=false&vazio=false&listaInvalido=true">CRIAR MINHA LISTA</a></h2>
+            </div>
+            
+            <div class="presentear">
+                <h1><img class="svg-icones" src="img/coracao/terra.svg" onload="SVGInject(this)"> Presenteie agora</h1>
+                <p>Está procurando uma lista?<br>
+                Aqui você encontra a lista de seus amigos e escolhe o presente</p>
+                <h2><a href="/procurarLista">PROCURAR UMA LISTA</a></h2>
+            </div>
+
+        </div>
+
+        <div class="botaoRolagem">
+            <a href="#home"><img class="svg-setas" src="img/setas/svg/seta-para-cima.svg" onload="SVGInject(this)"></a>
+        </div>
+</section>
+
+
+<footer id="footer">            
+  <div class="container">
+    <a href="/" class="titulo">Presentei.com</a> 
+  </div>
+</footer>
+
+    
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

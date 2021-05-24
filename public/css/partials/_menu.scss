@@ -1,0 +1,375 @@
+// Container-devices
+$container-xl: 1440px;
+$container-l: 1140px;
+$container-m: 960px;
+$container-s: 540px;
+
+@mixin responsive($device) {
+    @if $device == xl {
+      // For resolutions upper 1440px
+      @media screen and (min-width: $container-xl) {
+        @content;
+      }
+    } @else if $device == l {
+      // For resolutions between 1140px and 1440px
+      @media screen and (max-width: $container-xl) and (min-width: $container-l) {
+        @content;
+      }
+    } @else if $device == m {
+      // For resolutions between 960px and 1440px
+      @media screen and (max-width: $container-l) and (min-width: $container-m) {
+        @content;
+      }
+    } @else if $device == s {
+      // For resolutions less than 960px
+      @media screen and (max-width: $container-m) {
+        @content;
+      }
+    } @else if $device == xs {
+      // For resolutions less than 540px
+      @media screen and (max-width: $container-s) {
+        @content;
+      }
+    }
+  }
+
+
+.navbar-transparente {
+    // border: 1px solid green;
+    padding: 15px 0px;
+    height: 100px;
+	// background: rgba(136, 16, 7, 0.295);
+}
+
+.logo {
+    /* float: left; */
+    width: 200px;
+    height: 200px;
+    margin: 20px 30px 0 15px;
+
+
+    @include responsive(s){
+        display: flex;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.navbar-toggler {
+    @include responsive(s){
+        margin-right: 10%;
+    }
+}
+
+.titulo {
+    /* float: left; */
+    line-height: 50px;
+    font-size: 22px;
+    color: white;
+    font-weight: 500;
+
+    &:hover { 
+    color: #FFFFFF;
+    }
+
+    @include responsive(s){
+        margin-left: 10%;
+        
+    }
+    
+}
+
+.navbar-light .navbar-nav {
+
+  
+  @include responsive(s){
+    margin-left: 10%;
+    height: 100px;
+    justify-content: space-between;
+    
+  }
+
+  @include responsive(m){
+    margin-left: 10%;
+    height: 100px;
+    justify-content: space-between;
+    
+  }
+
+}
+
+.nav-item{
+  @include responsive(s){
+    margin-left: 50px;
+    width: 100px;
+  }
+
+}
+
+
+
+.navbar-light .navbar-nav .nav-link{
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: all 0.8s ease;
+    position: relative;
+    height: 85px;
+    border-bottom: 2px solid white;
+
+    &:hover{
+        font-weight: 500;
+        font-size: 19px;
+        color: #FFF;
+        transition: .5s ease;
+        background: linear-gradient(359.94deg, $red-dark 0.06%, rgba(225, 28, 33, 0) 101.91%);
+
+
+        &::before{
+          width: 30px;
+          background-color: $red-dark;
+        }
+
+    }
+
+    @include responsive(s){
+      position: relative;
+      top: 45%;
+      font-size: 16px;
+      line-height: 20px;
+      height: 30px;
+      width: 100px;
+      border-bottom: 0;
+      margin-left: 5px;
+
+      &:hover{
+        font-size: 16px;
+        background: none;
+        transition: .5s ease;
+        background: linear-gradient(359.94deg, $red-dark 0.06%, rgba(225, 28, 33, 0) 101.91%);
+
+      }
+    }
+
+    @include responsive(m){
+      font-size: 11px;
+      border-bottom: 20x solid white;
+      height: 80px;
+  
+
+
+      &:hover{
+        font-size: 13px;
+      }
+
+    }
+}
+
+// LOGIN
+
+#modal{
+  height: 100vh; 
+  width: 100vw;
+  background-color: #0E0A14EE;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: 400ms;
+
+  .btn-custom{
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+
+    @include responsive(s){
+
+      margin-top: 10px;
+      margin-left: 30px;
+
+    }
+
+  }
+
+
+  .hide{
+    display: none;
+  }
+
+  .content{
+    color: white;
+    width: 420px;
+  }
+
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+
+    @include responsive(s){
+
+      margin-left: 30px;
+
+    }
+
+  } 
+
+  .header a{
+      background-image: url("../img/X/x.svg");
+      width: 20px;
+      height: 20px;
+      display: flex;
+      font-size: 0.01px;
+      // border: 1px solid rebeccapurple;
+
+    @include responsive(s){
+
+      margin-right: 60px;
+
+    }
+
+  }
+
+  .header h1{
+    color: white;
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  label{
+    font-size: 14px;
+    line-height: 16px;
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 16px;
+
+    @include responsive(s){
+
+      margin-left: 30px;
+
+    }
+
+  }
+
+  .field{
+    display: flex;
+  }
+
+  input{
+    // flex: 1;
+    background-color: #f0f0f5;
+    // height: 35px;
+    // border: 0;
+    // border-radius: 8px 0 0 8px;
+    padding: 16px 24px;
+    color: #6c6c65
+  }
+
+  .email{
+
+    // border: 1px solid green;
+    width: 410px;
+    height: 35px;
+    border-radius: 8px;
+
+    @include responsive(s){
+      height: 30px;
+      width: 80%;
+      margin-left: 30px;
+    }
+  }
+
+  .senha{
+    
+    // flex: 1;
+    height: 35px;
+    width: 360px;
+    border-radius: 8px 0 0 8px;
+    // border: 1px solid green;
+
+    @include responsive(s){
+      height: 30px;
+      width: 65%;
+      margin-left: 30px;
+    }
+  }
+
+
+  .olho {
+    width: 30px;
+    height: 30px;
+    // margin: 15px;
+    // border: 1px solid rebeccapurple;
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 2.5px;
+
+    @include responsive(s){
+      width: 35px;
+      height: 35px;
+      margin: 0;
+      margin-left: 10px;
+      // border: 1px solid rebeccapurple;
+    }
+  }
+
+  .mostrarSenha{
+    &:checked + span {
+      background-color: #c03;
+    }
+
+  }
+
+  .chk{
+    width: 50px;
+    height: 35px; 
+    margin-top: 0px;
+    border: 0;
+    // border: 1px solid rebeccapurple;
+    
+    background-color: #f0f0f5;
+
+    border-radius: 0 8px 8px 0;
+    
+    cursor: pointer;
+
+      @include responsive(s){
+        width: 15%;
+        height: 34px;
+        padding: 0;
+        margin-left: 0;
+      }
+
+  }
+
+  .form-control {
+    background-color: $white-light;
+        
+    &:focus {
+      border-color: #FF0000;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+    }
+
+  }
+
+  .btn-custom-Senha{
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    background-color: $red-light;
+    color: $white-light;
+
+    &:hover{
+      background-color: $red-dark;
+    }
+
+    @include responsive(s){
+
+      margin-top: 10px;
+      margin-left: 30px;
+
+    }
+  }
+
+}

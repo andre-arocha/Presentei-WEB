@@ -1,0 +1,77 @@
+<section class="bannerProcurar" id="home"> <!-- Inicio sessão home -->
+    <div class="cabecalho-homeProcurar"> <!-- Inicio cabecalho-home -->
+        <header> <!--inicio header-->
+            <nav class="navbar navbar-expand-md navbar-light navbar-transparente"> <!--inicio nav-->
+                <div class="container"> <!--inicio container-->
+                    <a href="/logado"><img class="logo" src="img/logo/logoPngSf.png"></a>
+
+
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">  <!--inicio button-->
+                    <i class="fas fa-bars text-white"></i>
+                    </button> <!--final button-->
+
+                    <div class="collapse navbar-collapse" id="nav-principal"> <!-- inicio div collapse-->
+
+                        <ul class="navbar-nav ml-auto"> <!--inicio ul-->                            
+                            <li class="nav-item">
+                            <a href="/minhaConta" class="nav-link"><?= $this->view->nome?></a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/minhaLista" class="nav-link">Minha lista</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/procurarListaLogado" class="nav-link">Procurar Lista</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="/sair" class="nav-link">Sair</a>
+                            </li>
+                        </ul> <!--final ul-->
+
+                    </div> <!--final div collapse-->
+
+                </div> <!--final container-->
+
+            </nav> <!--final nav-->
+
+        </header> <!--final header-->
+
+        <section class="container listaProcurar"> 
+            <form action="/buscarListaApp" method="post">
+                <input type="text" name="nome" class="busca" placeholder="Buscar lista - digite o nome da lista" required>  
+                <button name="button" class="procurar"><img src="../img/buscar/lupa.png" alt="buscar">Procurar</button>
+            </form>
+        </section>  
+
+        <section class="container exibirListaProcurar">
+                <?php if($this->view->lista){ ?>
+                    <?php foreach($this->view->lista as $indice_arr => $lista){ ?>
+                        <div class="infoLista">
+                            <img src="img/fotosListas/<?= $lista['img_lista'] ?>" class="img"></img>
+                            <h2><?= $lista['nome_lista']?></h2>
+                            <h4 class="titMinhaLista"><small>Dono da lista: </small><?= $lista['nome_usuario'] ?></h4>
+                            <h4 class="titMinhaLista"><small>Código da lista: </small><?= $lista['id_lista'] ?></h4>
+                            <h4 class="titMinhaLista"><small>Data: </small><?= $lista['data_lista'] ?></h4>
+                            <a href="SoVerMeusProdutos?id=<?= $lista['id_lista'] ?>" class="btn btn-custom btn-sm">VER LISTA</a>                   
+                        </div>
+                    <?php } ?>
+                <?php }else{ ?>
+                    <h2 class="semLista">Nenhuma lista encontrada</h2>
+                <?php } ?>
+        </section>
+
+    </div>  <!-- Final sessão home -->   
+    
+</section> <!-- Final cabecalho-home -->
+
+
+<footer class="footerLista">            
+  <div class="container">
+    <a href="/" class="titulo">Presentei.com</a> 
+  </div>
+</footer>
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

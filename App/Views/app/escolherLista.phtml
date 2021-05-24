@@ -1,0 +1,84 @@
+<section class="banner" id="home">
+    <div class="cabecalho-home">
+        <header> <!--inicio header-->
+            <nav class="navbar navbar-expand-md navbar-light navbar-transparente"> <!--inicio nav-->
+                <div class="container"> <!--inicio container-->
+                    <a href="/logado"><img class="logo" src="img/logo/logoPngSf.png"></a>
+
+
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">  <!--inicio button-->
+                    <i class="fas fa-bars text-white"></i>
+                    </button> <!--final button-->
+
+                    <div class="collapse navbar-collapse" id="nav-principal"> <!-- inicio div collapse-->
+
+                    <ul class="navbar-nav ml-auto"> <!--inicio ul-->                            
+                        <li class="nav-item">
+                        <a href="/minhaConta" class="nav-link"><?= $this->view->nome?></a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="/minhaLista" class="nav-link">Minha lista</a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="/procurarListaLogado" class="nav-link">Procurar Lista</a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="/sair" class="nav-link">Sair</a>
+                        </li>
+                    </ul> <!--final ul-->
+
+                    </div> <!--final div collapse-->
+
+                </div> <!--final container-->
+
+            </nav> <!--final nav-->
+
+        </header> <!--final header-->
+
+        <section class="container lista">
+            <section class="listaDePresente">            
+                <div class="iconesPresente">
+                    <div class="pngIconesPresente">
+                        <img src="img/lista/fotografia-de-casamento.png" alt="">
+                        <a href="/criarLista?link=1" class="btn btn-custom btn-sm">Casamento</a>
+                    </div>
+
+                    <div class="pngIconesPresente">
+                        <img src="img/lista/festa-de-aniversario.png" alt="">
+                        <a href="/criarLista?link=2" class="btn btn-custom btn-sm">Aniversário</a>
+                    </div>
+
+                    <div class="pngIconesPresente">
+                        <img src="img/lista/carrinho-de-bebe.png" alt="">
+                        <a href="/criarLista?link=3" class="btn btn-custom btn-sm">Chá de Bebê</a>
+                    </div>
+
+                    <div class="pngIconesPresente">
+                        <img src="img/lista/utensilios-de-cozinha.png" alt="">
+                        <a href="/criarLista?link=4" class="btn btn-custom btn-sm">Chá de Cozinha</a>
+                    </div>
+                </div> 
+
+                <section class="propriaLista">
+                    <p>Selecione uma das listas que criamos pra você ou então crie sua própria lista e selecione seus produtos</p>
+                    <a href="/criarLista?link=5" class="btn btn-custom btn-sm">Criar minha própria lista</a>
+                </section>    
+            </section>
+        </section>
+    </div>
+</section>
+
+
+<footer>            
+  <div class="container">
+    <a href="/" class="titulo">Presentei.com</a> 
+  </div>
+</footer>
+
+    
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
